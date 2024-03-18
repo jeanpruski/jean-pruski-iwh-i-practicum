@@ -8,8 +8,6 @@ html
     .global-wrapper
       h1 #{title}
 
-      a(href="/") Return to the homepage
-
       form(action="/update-cobj", method="post")
         label(for="name") Name:
         input(type="text", name="name", required)
@@ -17,5 +15,7 @@ html
         input(type="text", name="first_skill", required)
         label(for="secondary_skill") Secondary Skill:
         input(type="text", name="secondary_skill", required)
-        
-        button(type="submit") Add item
+
+        .button-wrapper        
+          a.a-inverse(href="/") Return to the homepage
+          button.a(type="submit") Add item
