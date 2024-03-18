@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title #{page_title}
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 #{title}
+
+    a(href="/update-cobj") Add Item
+
+    table
+      thead
+        tr
+          th Name
+          th First Skill
+          th Secondary Skill
+      tbody
+        each item in data
+          tr
+            td #{item.properties.name}
+            td #{item.properties.first_skill}
+            td #{item.properties.secondary_skill}
