@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const port = 3000;
 
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
@@ -13,23 +14,21 @@ const tools_service = require('./services/tools_service');
 const SUPER_HEROS_ID = process.env.SUPER_HEROS_ID;
 
 app.get('/', async (req, res) => res.render('homepage', {
-    page_title: tools_service.page_names.home,
-    title: tools_service.page_title,
+    title: tools_service.page_names.home,
     data: await hubspot_service.getObjects(SUPER_HEROS_ID)
   }
 ));
 
 app.get('/update-cobj', async (req, res) => res.render('update-cobj', {
-    page_title: tools_service.page_names.update_get,
-    title: tools_service.page_title,
+    title: tools_service.page_names.update,
     data: await hubspot_service.getObjects(SUPER_HEROS_ID)
   }
 ));
 
 app.post('/update-cobj', async (req, res) => {
-  const request = await hubspot_service.updateObjects(SUPER_HEROS_ID, req.body)
+  const request = await hubspot_service.updateObjects(SUPER_HEROS_ID, req.body);
   if(request.result)  res.redirect('/');  
   else res.status(500).send(request.error.response ? request.error.response.data : 'Error...');
 });
 
-app.listen(3000, () => console.log('Listening on http://localhost:3000'));
+app.listen(port, () => console.log(`Listening on ${port}`));

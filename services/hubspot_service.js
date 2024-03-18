@@ -30,7 +30,7 @@ const hubspot_service = {
           }
       };
      
-      const response = await axios.post(url, item, hubspot_service.hubspotHeaders);
+      await axios.post(url, item, hubspot_service.hubspotHeaders);
       return {
         result: true
       }
