@@ -20,8 +20,7 @@ app.get('/', async (req, res) => res.render('homepage', {
 ));
 
 app.get('/update-cobj', async (req, res) => res.render('update-cobj', {
-    title: tools_service.page_names.update,
-    data: await hubspot_service.getObjects(SUPER_HEROS_ID)
+    title: tools_service.page_names.update
   }
 ));
 

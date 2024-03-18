@@ -23,11 +23,11 @@ const hubspot_service = {
 
     try {
       const item = {
-          properties: {
-              "name": formData.name,
-              "first_skill": formData.first_skill,
-              "secondary_skill": formData.secondary_skill
-          }
+        properties: {
+          "name": formData.name,
+          "first_skill": formData.first_skill,
+          "secondary_skill": formData.secondary_skill
+        }
       };
      
       await axios.post(url, item, hubspot_service.hubspotHeaders);
