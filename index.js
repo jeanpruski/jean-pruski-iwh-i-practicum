@@ -19,7 +19,7 @@ app.get('/', async (req, res) => res.render('homepage', {
   }
 ));
 
-app.get('/update-cobj', async (req, res) => res.render('update-cobj', {
+app.get('/update-cobj', async (req, res) => res.render('update', {
     title: tools_service.page_names.update
   }
 ));
